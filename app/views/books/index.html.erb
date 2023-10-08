@@ -3,10 +3,10 @@
 <% @books.each do |book| %>
 
   <p>
-   <span><%= book.title %></span>
+   <table><%= book.title %></table>
   </p><!--投稿された題名-->
   <p>
-    <span><%= book.body %></span>
+    <table><%= book.body %></table>
   </p><!--投稿された内容-->
   <span>
     <%= link_to "Show", book_path(book.id) %>
