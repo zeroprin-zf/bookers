@@ -2,9 +2,12 @@
 
 <% @books.each do |book| %>
 
-  <p>タイトル</p>
+  <p></p><!--投稿された題名-->
+  <p></p><!--投稿された内容-->
   <span>
-    <%= link_to book.title, book_path(book.id) %>
+    <%= link_to "Show", book_path(book.id) %>
+    <%= link_to "Edit", edit_book_path(book.id) %>
+    <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you Sure?" %>
     </span>
 
 <% end %>
