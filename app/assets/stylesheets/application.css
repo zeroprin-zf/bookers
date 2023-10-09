@@ -19,10 +19,25 @@
   box-sizing: border-box;
 }
 
-.info{
-  display: flex;
-  flex-direction: column;
+body{
+  margin: 30px;
 }
+
+td{
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.new{
+  margin-top: 20px;
+}
+
+ul{
+  list-style: none;
+}
+
+
 
 .show{
   margin: 50px 0 40px 70px;

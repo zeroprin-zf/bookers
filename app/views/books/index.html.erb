@@ -1,14 +1,18 @@
+
 <h1>Books</h1>
 
- 
 
+<body>
   <table>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-    </tr>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Body</th>
+      </tr>
+    </thead>
 
  <% @books.each do |book| %>
+ <tbody>
     <tr>
        <td><%= book.title %></td>
        <td><%= book.body %></td>
@@ -16,18 +20,30 @@
        <td><%= link_to "Edit", edit_book_path(book.id) %></td>
        <td><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you Sure?" %></td>
     </tr>
-  </table>
-
-    
- <% end %>
-
-  <%= form_with model: @book do |f| %>
-    <h4>Title</h4>
-    <%= f.text_field :title %>
-
-    <h4>Body</h4>
-    <%= f.text_area :body %>
-
-    <%= f.submit 'Create Book' %>
+  </tbody>
   <% end %>
+  </table>
+</body>
+
+
+<div class="new">
+  <h2>New book</h2>
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %>error
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+       <% end %>
+    </ul>
+  <% end %>
+    <%= form_with model: @book do |f| %>
+      <h4>Title</h4>
+      <%= f.text_field :title %>
+
+      <h4>Body</h4>
+      <%= f.text_area :body %>
+
+      <%= f.submit 'Create Book' %>
+    <% end %>
+<div>
 
